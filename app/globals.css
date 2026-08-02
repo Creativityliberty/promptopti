@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 48 33% 95%;
+    --foreground: 132 7% 15%;
+    --card: 48 30% 98%;
+    --card-foreground: 132 7% 15%;
+    --popover: 48 30% 98%;
+    --popover-foreground: 132 7% 15%;
+    --primary: 145 31% 20%;
+    --primary-foreground: 48 33% 98%;
+    --secondary: 135 18% 89%;
+    --secondary-foreground: 145 31% 20%;
+    --muted: 120 7% 92%;
+    --muted-foreground: 132 5% 43%;
+    --accent: 135 18% 89%;
+    --accent-foreground: 145 31% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 120 7% 84%;
+    --input: 120 7% 84%;
+    --ring: 140 15% 54%;
+    --radius: 1.125rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    min-width: 320px;
+    overflow: hidden;
+    font-family: "Poppins", "Avenir Next", "Segoe UI", Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    background: #d4e4d8;
+    color: #234333;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(120, 153, 133, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(120, 153, 133, 0.18);
+  }
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
