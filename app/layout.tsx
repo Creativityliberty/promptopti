@@ -42,8 +42,8 @@ export default function RootLayout({
   )
 
   return (
-    <html lang="fr">
-      <body className="font-sans antialiased">
+    <html lang="fr" suppressHydrationWarning>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ? (
           <ClerkProvider>{content}</ClerkProvider>
         ) : content}

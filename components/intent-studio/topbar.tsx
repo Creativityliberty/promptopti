@@ -1,5 +1,6 @@
 "use client"
 
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 import {
   CheckCircle2,
   ChevronDown,
@@ -92,13 +93,33 @@ export function Topbar({ inspectorOpen, onOpenCommand, onOpenInspector, onOpenNa
           </button>
         ) : null}
 
-        <button
-          type="button"
-          aria-label="Ouvrir le profil"
-          className="grid h-10 w-10 place-items-center rounded-full bg-[#234333] text-[13px] font-semibold text-white shadow-sm ring-4 ring-white/70"
-        >
-          N
-        </button>
+        <Show when="signed-out">
+          <SignInButton mode="modal">
+            <button
+              type="button"
+              aria-label="Se connecter"
+              className="h-10 rounded-full border border-[#d6d9d2] bg-white/70 px-4 text-[13px] font-semibold text-[#234333] transition hover:bg-white"
+            >
+              Se connecter
+            </button>
+          </SignInButton>
+          <SignUpButton mode="modal">
+            <button
+              type="button"
+              aria-label="Créer un compte"
+              className="grid h-10 w-10 place-items-center rounded-full bg-[#234333] text-[13px] font-semibold text-white shadow-sm ring-4 ring-white/70"
+            >
+              N
+            </button>
+          </SignUpButton>
+        </Show>
+        <Show when="signed-in">
+          <UserButton
+            appearance={{
+              elements: { avatarBox: "h-10 w-10 shadow-sm ring-4 ring-white/70" },
+            }}
+          />
+        </Show>
       </div>
     </header>
   )
