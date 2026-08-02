@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Living Intent Canvas for compiling intentions into Prompt Packs, Skills and MCP-ready workflows.",
+  "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=20"
   },
